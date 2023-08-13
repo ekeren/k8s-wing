@@ -4,7 +4,7 @@ const AWS = require('wing-sdk');
 const app = express();
 const port = 3000;
 
-let sqs = wingSdk.getQueue("device messages queue");
+let sqs = wingSdk.getQueue("MY_QUEUE");
 
 
 // Use body-parser middleware to parse JSON requests
