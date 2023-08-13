@@ -5,6 +5,7 @@ bring "./lib/k8s.w" as k8s;
 let queue = new cloud.Queue() as "device messages queue";
 let ingress = new k8s.Ingress();
 let devicePod = new k8s.Pod("./src/device/docker.file") as "devicePod";
+devicePod.bind("MY_QUEUE", queue, ["push()"]);
 let deviceService = new k8s.Service(devicePod) as "deviceService";
 let webPod = new k8s.Pod("./src/web/docker.file");
 let webAppService = new k8s.Service(webPod) as "webAppService";
